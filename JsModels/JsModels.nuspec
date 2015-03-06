@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>JsModels.Net</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>John Knoll</authors>
+    <owners>John Knoll</owners>
+    <projectUrl>https://github.com/ucdavis/JsModels.Net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2015</copyright>
+  </metadata>
+</package>
