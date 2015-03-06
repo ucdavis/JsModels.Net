@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ModelPrototype")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("JsModels.Net")]
+[assembly: AssemblyDescription("Javascript model building for .NET apps")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ModelPrototype")]
+[assembly: AssemblyProduct("JsModels.Net")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
