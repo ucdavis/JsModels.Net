@@ -10,5 +10,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Javascript model building for .NET apps</description>
     <copyright>Copyright 2015</copyright>
+    <files>
+      <file src="Content\App_Start\Startup.JsModel.cs" target="App_Start" />
+    </files>
   </metadata>
 </package>
