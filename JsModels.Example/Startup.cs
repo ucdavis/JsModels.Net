@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartupAttribute(typeof(JsModels.Example.Startup))]
@@ -10,6 +9,7 @@ namespace JsModels.Example
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            ConfigureJsModels(app);
         }
     }
 }
