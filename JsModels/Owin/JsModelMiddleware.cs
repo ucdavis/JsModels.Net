@@ -14,8 +14,8 @@ namespace JsModels.Owin
 
         public JsModelMiddleware(JsModelsConfiguration configuration)
         {
-            var generator = new JsModelGenerator(configuration.Types);
-            _js = generator.GenerateModels(configuration.Types);
+            var generator = new JsModelGenerator(configuration.Models);
+            _js = generator.GenerateModels(configuration.Models);
 
             // minify
             _js = (new Minifier()).MinifyJavaScript(_js);

@@ -1,9 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace JsModels.Owin
 {
     public class JsModelsConfiguration
     {
-        public Type[] Types { get; set; }
+        public JsModelsConfiguration()
+        {
+            Models = new List<Type>();
+        }
+
+        /// <summary>
+        /// Models to transform
+        /// </summary>
+        public List<Type> Models { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Humanizer;
@@ -8,18 +9,18 @@ namespace JsModels
 {
     public class JsModelGenerator
     {
-        private readonly Type[] _types;
+        private readonly IEnumerable<Type> _refTypes;
 
         private static readonly Type[] _numberTypes = { typeof(byte), typeof(short), typeof(int), typeof(long), typeof(float), typeof(decimal), typeof(double) };
         private static readonly Type[] _stringTypes = { typeof(string), typeof(Guid) };
         private static readonly Type[] _dateTypes = { typeof(DateTime), typeof(DateTimeOffset) };
 
-        public JsModelGenerator(Type[] types)
+        public JsModelGenerator(IEnumerable<Type> refTypes)
         {
-            _types = types;
+            _refTypes = refTypes;
         }
 
-        public string GenerateModels(Type[] models)
+        public string GenerateModels(IEnumerable<Type> models)
         {
             var builder = new StringBuilder();
             foreach (var model in models)
@@ -45,7 +46,7 @@ namespace JsModels
 
                 builder.Append(string.Format("    this.{0}", propName));
 
-                if (_types.Contains(property.PropertyType))
+                if (_refTypes.Contains(property.PropertyType))
                 {
                      builder.Append(string.Format(" = new {0}()", property.PropertyType.Name));
                 }
