@@ -8,7 +8,7 @@
     <owners>John Knoll</owners>
     <projectUrl>https://github.com/ucdavis/JsModels.Net</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
+    <description>Javascript model building for .NET apps</description>
     <copyright>Copyright 2015</copyright>
   </metadata>
 </package>
