@@ -12,6 +12,6 @@
     <copyright>Copyright 2015</copyright>
   </metadata>
   <files>
-    <file src="content\App_Start\Startup.JsModels.cs" target="App_Start" />
+    <file src="content\App_Start\Startup.JsModels.cs.pp" target="content\App_Start\Startup.JsModels.cs.pp" />
   </files>
 </package>
