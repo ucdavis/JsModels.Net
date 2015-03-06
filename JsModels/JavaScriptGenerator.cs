@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Humanizer;
 
-namespace ModelPrototype
+namespace JsModels
 {
     public class JsModelGenerator
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ModelPrototype.Owin
+namespace JsModels.Owin
 {
     public class JsModelsConfiguration
     {

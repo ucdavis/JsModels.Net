@@ -1,4 +1,4 @@
-﻿using ModelPrototype.Owin;
+﻿using JsModels.Owin;
 using System.Diagnostics.CodeAnalysis;
 
 

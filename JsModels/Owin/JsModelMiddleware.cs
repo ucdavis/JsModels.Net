@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Ajax.Utilities;
 using Microsoft.Owin;
 
-namespace ModelPrototype.Owin
+namespace JsModels.Owin
 {
     using AppFunc = Func<IDictionary<string, object>, Task>;
 

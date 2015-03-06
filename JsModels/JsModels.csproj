@@ -7,7 +7,7 @@
     <ProjectGuid>{87EE8895-F004-4DC2-AEA7-78D56C514BE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>JsMoodels</RootNamespace>
+    <RootNamespace>JsModels</RootNamespace>
     <AssemblyName>JsModels</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
