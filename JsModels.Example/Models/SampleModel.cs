@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace JsModels.Example.Models
 {
     public class SampleModel
     {
+        public string MyValue { get; set; }
+        public decimal MyDecimal { get; set; }
+        public SampleChildModel MyChildModel { get; set; }
     }
 }

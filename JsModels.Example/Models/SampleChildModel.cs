@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace JsModels.Example.Models
 {
     public class SampleChildModel
     {
+        public string MyOtherValue { get; set; }
+        public decimal MyOtherDecimal { get; set; }
     }
 }
