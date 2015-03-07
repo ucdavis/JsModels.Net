@@ -8,10 +8,10 @@ namespace JsModels.Example
     {
         public void ConfigureJsModels(IAppBuilder app)
         {
-            app.MapJsModels(new JsModelsConfiguration()
-            {
-                Types = new[] { typeof(SampleModel), typeof(SampleChildModel) }
-            });
+            var config = new JsModelsConfiguration();
+            config.Models.AddRange(new[] {typeof (SampleModel), typeof (SampleChildModel)});
+
+            app.MapJsModels(config);
         }
     }
 }
