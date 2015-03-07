@@ -14,5 +14,7 @@ namespace JsModels.Owin
         /// Models to transform
         /// </summary>
         public List<Type> Models { get; set; }
+
+        public string Path { get; set; }
     }
 }

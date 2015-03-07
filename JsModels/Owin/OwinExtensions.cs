@@ -15,18 +15,13 @@ namespace Owin
         /// <param name="configuration"></param>
         public static IAppBuilder MapJsModels(this IAppBuilder appBuilder, JsModelsConfiguration configuration)
         {
-            return appBuilder.MapJsBuilder("/jsmodels", configuration);
-        }
-
-        public static IAppBuilder MapJsBuilder(this IAppBuilder appBuilder, string path,
-            JsModelsConfiguration configuration)
-        {
-            return appBuilder.Map(path, subBuilder => Configuration(subBuilder, configuration));
+            return appBuilder.Map(configuration.Path, subBuilder => Configuration(subBuilder, configuration));
         }
 
         private static void Configuration(IAppBuilder appBuilder, JsModelsConfiguration configuration)
         {
-            var middleware = new JsModelMiddleware(configuration);
+            var middleware = JsModelMiddleware.Instance;
+            middleware.Configure(configuration);
             appBuilder.Run(middleware.Invoke);
         }
     }

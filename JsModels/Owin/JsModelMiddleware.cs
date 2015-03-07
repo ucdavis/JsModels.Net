@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Security.Policy;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Ajax.Utilities;
 using Microsoft.Owin;
@@ -10,15 +13,28 @@ namespace JsModels.Owin
 
     public class JsModelMiddleware
     {
-        private readonly string _js;
+        public static JsModelMiddleware Instance = new JsModelMiddleware();
 
-        public JsModelMiddleware(JsModelsConfiguration configuration)
+        private string _js;
+        public string Path { get; private set; }
+        public string VersionHash { get; private set; }
+
+        public void Configure(JsModelsConfiguration configuration)
         {
+            // save path
+            Path = configuration.Path;
+
+            // compute js
             var generator = new JsModelGenerator(configuration.Models);
             _js = generator.GenerateModels(configuration.Models);
 
             // minify
             _js = (new Minifier()).MinifyJavaScript(_js);
+
+            // get version hash
+            var encoding = new UTF8Encoding();
+            var bytes = encoding.GetBytes(_js);
+            VersionHash = Convert.ToBase64String(SHA512.Create().ComputeHash(bytes));
         }
 
         public async Task Invoke(IOwinContext context)
@@ -27,8 +43,6 @@ namespace JsModels.Owin
             {
                 throw new ArgumentNullException("context");
             }
-
-            //return base.ProcessRequest(context);
 
             context.Response.ContentType = "application/javascript";
             await context.Response.WriteAsync(_js);
