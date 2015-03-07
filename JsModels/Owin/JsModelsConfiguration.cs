@@ -7,6 +7,7 @@ namespace JsModels.Owin
     {
         public JsModelsConfiguration()
         {
+            Path = "/jsmodels";
             Models = new List<Type>();
         }
 
