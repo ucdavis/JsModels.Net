@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
 using System.Security.Cryptography;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Ajax.Utilities;
@@ -9,13 +10,13 @@ using Microsoft.Owin;
 
 namespace JsModels.Owin
 {
-    using AppFunc = Func<IDictionary<string, object>, Task>;
-
     public class JsModelMiddleware
     {
         public static JsModelMiddleware Instance = new JsModelMiddleware();
 
         private string _js;
+        private byte[] _jsCompressed;
+
         public string Path { get; private set; }
         public string VersionHash { get; private set; }
 
@@ -35,6 +36,16 @@ namespace JsModels.Owin
             var encoding = new UTF8Encoding();
             var bytes = encoding.GetBytes(_js);
             VersionHash = Convert.ToBase64String(SHA512.Create().ComputeHash(bytes));
+
+            // compress and read out to byte array
+            using (var ms = new MemoryStream())
+            {
+                using (var stream = new GZipStream(ms, CompressionLevel.Optimal, false))
+                {
+                    stream.Write(bytes, 0, bytes.Length);
+                }
+                _jsCompressed = ms.ToArray();
+            }
         }
 
         public async Task Invoke(IOwinContext context)
@@ -45,7 +56,18 @@ namespace JsModels.Owin
             }
 
             context.Response.ContentType = "application/javascript";
-            await context.Response.WriteAsync(_js);
+            context.Response.Headers.Add("Cache-Control", new[] { "max-age=2592000" });
+
+            var acceptEncoding = context.Request.Headers.GetValues("Accept-Encoding");
+            bool supportGZip = acceptEncoding != null && acceptEncoding.Any(v => v.Split(',').Contains("gzip"));
+            if (!supportGZip)
+            {
+                await context.Response.WriteAsync(_js);
+                return;
+            }
+
+            await context.Response.WriteAsync(_jsCompressed);
+            context.Response.Headers.Add("Content-encoding", new []{"gzip"});
         }
     }
 }
