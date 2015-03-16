@@ -13,7 +13,6 @@
     <language>en-US</language>
   </metadata>
   <files>
-    <file src="$builddir$" />
     <file src="JsModels\content\App_Start\Startup.JsModels.cs.pp" target="content\App_Start\Startup.JsModels.cs.pp" />
   </files>
 </package>
