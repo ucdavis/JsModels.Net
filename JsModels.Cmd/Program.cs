@@ -40,20 +40,21 @@ namespace JsModels.Cmd
                 var assembly = Assembly.LoadFile(options.InputAssembly);
 
                 // find types
-                var classNames = options.Classes.Split(',');
-                var types = classNames.Select(assembly.GetType);
+                var models = options.Classes.Split(',')
+                    .Select(assembly.GetType)
+                    .ToList();
 
                 // use types for references
-                var generator = new JsModelGenerator(types);
+                var generator = new JsModelGenerator(models);
 
-                foreach (var name in classNames)
+                foreach (var model in models)
                 {
-                    Console.WriteLine("Generating model for: {0}", name);
+                    Console.WriteLine("Generating model for: {0}", model.Name);
 
-                    var filename = string.Format("{0}\\{1}.js", options.OutputDirectory, name);
+                    var filename = string.Format("{0}\\{1}.js", options.OutputDirectory, model.Name);
                     using (var writer = new StreamWriter(filename, false))
                     {
-                        generator.GenerateModel(assembly.GetType(name), writer);
+                        generator.GenerateModel(model, writer);
                         writer.Flush();
                     }
                 }
