@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels.Example", "JsModel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels", "JsModels\JsModels.csproj", "{87EE8895-F004-4DC2-AEA7-78D56C514BE0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels.Cmd", "JsModels.Cmd\JsModels.Cmd.csproj", "{98B08938-0AEA-436C-83E3-A55FCD60F6B0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{D3A29020-2BEC-441E-9FF8-97214CBCE4AE}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\JsModels.Cmd.nuspec = nuget\JsModels.Cmd.nuspec
+		nuget\JsModels.nuspec = nuget\JsModels.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +29,10 @@ Global
 		{87EE8895-F004-4DC2-AEA7-78D56C514BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87EE8895-F004-4DC2-AEA7-78D56C514BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87EE8895-F004-4DC2-AEA7-78D56C514BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B08938-0AEA-436C-83E3-A55FCD60F6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B08938-0AEA-436C-83E3-A55FCD60F6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B08938-0AEA-436C-83E3-A55FCD60F6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B08938-0AEA-436C-83E3-A55FCD60F6B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
