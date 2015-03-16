@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Html\JsModelsScripts.cs" />
-    <Compile Include="JavaScriptGenerator.cs" />
+    <Compile Include="JsModelGenerator.cs" />
     <Compile Include="Owin\JsModelMiddleware.cs" />
     <Compile Include="Owin\JsModelsConfiguration.cs" />
     <Compile Include="Owin\OwinExtensions.cs" />
