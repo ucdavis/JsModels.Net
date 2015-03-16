@@ -251,6 +251,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JsModels.Cmd\JsModels.Cmd.csproj">
+      <Project>{98b08938-0aea-436c-83e3-a55fcd60f6b0}</Project>
+      <Name>JsModels.Cmd</Name>
+    </ProjectReference>
     <ProjectReference Include="..\JsModels\JsModels.csproj">
       <Project>{87ee8895-f004-4dc2-aea7-78d56c514be0}</Project>
       <Name>JsModels</Name>
@@ -284,6 +288,9 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>"$(TargetDir)JsModels.Cmd.exe" -i "$(TargetPath)" -o "$(ProjectDir)Scripts\JsModels" -x "SampleModel,SampleChildModel"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
