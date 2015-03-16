@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Humanizer;
@@ -22,57 +23,63 @@ namespace JsModels
 
         public string GenerateModels(IEnumerable<Type> models)
         {
-            var builder = new StringBuilder();
-            foreach (var model in models)
+            var sb = new StringBuilder();
+            using (var writer = new StringWriter(sb))
             {
-                GenerateModel(model, builder);
-                builder.Append("\n");
+                foreach (var model in models)
+                {
+                    GenerateModel(model, writer);
+                }
             }
-            return builder.ToString();
+            return sb.ToString();
         }
 
-        public string GenerateModel(Type model, StringBuilder builder = null)
+        public string GenerateModel(Type model)
         {
-            if (builder == null)
+            var sb = new StringBuilder();
+            using (var writer = new StringWriter(sb))
             {
-                builder = new StringBuilder();
+                GenerateModel(model, writer);
+                writer.Flush();
             }
+            return sb.ToString();
+        }
 
-            builder.Append(string.Format("function {0}() ", model.Name) + "{\n");
+        public void GenerateModel(Type model, TextWriter writer)
+        {
+            writer.WriteLine("function {0}() {{", model.Name);
 
             foreach (var property in model.GetProperties())
             {
                 var propName = property.Name.Camelize();
 
-                builder.Append(string.Format("    this.{0}", propName));
+                writer.Write("    this.{0}", propName);
 
                 if (_refTypes.Contains(property.PropertyType))
                 {
-                     builder.Append(string.Format(" = new {0}()", property.PropertyType.Name));
+                    writer.Write(" = new {0}()", property.PropertyType.Name);
                 }
                 else if (_stringTypes.Contains(property.PropertyType))
                 {
-                    builder.Append(" = ''");
+                    writer.Write(" = ''");
                 }
                 else if (_numberTypes.Contains(property.PropertyType))
                 {
-                    builder.Append(" = 0");
+                    writer.Write(" = 0");
                 }
                 else if (typeof (IEnumerable).IsAssignableFrom(property.PropertyType))
                 {
-                    builder.Append(" = []");
+                    writer.Write(" = []");
                 }
                 else
                 {
-                    builder.Append(" = {}");
+                    writer.Write(" = {}");
                 }
 
-                builder.Append(";\n");
+                writer.WriteLine(";");
             }
 
-            builder.Append("}");
-
-            return builder.ToString();
+            writer.WriteLine("}");
         }
     }
 }
