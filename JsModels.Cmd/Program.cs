@@ -47,7 +47,24 @@ namespace JsModels.Cmd
                     var model = assembly.GetType(name);
                     if (model == null)
                     {
-                        Console.WriteLine();
+                        Console.WriteLine("Could not find model by name of: {0}", name);
+                        
+                        var lower = name.ToLower();
+                        var results = assembly.GetTypes().Where(t => t.Name.ToLower() == lower).ToList();
+                        if (!results.Any())
+                        {
+                            Console.WriteLine("Could not find model by any other name. Exiting.");
+                            return 1;
+                        }
+
+                        if (results.Count() > 1)
+                        {
+                            Console.WriteLine("Multiple models found by that name. Exiting.");
+                            return 1;
+                        }
+                        model = results.First();
+
+                        Console.WriteLine("Found model by name of: {0}", model.FullName);
                     }
 
                     models.Add(model);
