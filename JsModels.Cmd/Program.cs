@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JsModels.Cmd
 {
@@ -18,6 +16,14 @@ namespace JsModels.Cmd
                 if (!CommandLine.Parser.Default.ParseArguments(args, options)) return 1;
 
                 // check options
+                if (string.IsNullOrWhiteSpace(options.InputAssembly))
+                {
+                    Console.WriteLine("Input Assembly required.");
+                    Console.WriteLine("");
+                    Console.WriteLine(options.GetUsage());
+                    return 1;
+                }
+
                 if (string.IsNullOrWhiteSpace(options.Classes))
                 {
                     Console.WriteLine("Classes Option must be provided");
@@ -68,6 +74,12 @@ namespace JsModels.Cmd
                     }
 
                     models.Add(model);
+                }
+
+                if (!models.Any())
+                {
+                    Console.WriteLine("No models found. Exiting.");
+                    return 1;
                 }
 
                 // use types for references
