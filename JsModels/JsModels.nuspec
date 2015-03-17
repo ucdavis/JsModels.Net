@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>JsModels.Net</id>
+    <title>JsModels.Net</title>
+    <version>$version$</version>
+    <authors>John Knoll</authors>
+    <owners>John Knoll</owners>
+    <projectUrl>https://github.com/ucdavis/JsModels.Net</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Javascript model building for .NET apps</description>
+    <copyright>Copyright 2015</copyright>
+    <language>en-US</language>
+  </metadata>
+  <files>
+    <file src="JsModels\content\App_Start\Startup.JsModels.cs.pp" target="content\App_Start\Startup.JsModels.cs.pp" />
+  </files>
+</package>
