@@ -4,19 +4,39 @@
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)'==''" >Release</Configuration>
+    <ArtifactDropDirectory>.\artifacts</ArtifactDropDirectory>
+    <AssemblyBuildDirectory>.\build</AssemblyBuildDirectory>
+    <ILMergeFileOutput>$(ArtifactDropDirectory)\jsmodels.exe</ILMergeFileOutput>
   </PropertyGroup>
   
-  <Target Name="Build">
+  <Target Name="CreateDirectories">
+      <MakeDir Directories="$(AssemblyBuildDirectory)"/>
+      <MakeDir Directories="$(ArtifactDropDirectory)"/>
+  </Target>
+  
+  <Target Name="Build" DependsOnTargets="CreateDirectories">
     <MSBuild Projects="JsModels.sln" Targets="Build" />
   </Target>
 
-  <Target Name="Package">
+  <Target Name="ILMergeArtifacts" DependsOnTargets="Build">
+      <ItemGroup>
+          <ILMergeItems Include="JsModels.Cmd.exe JsModels.dll CommandLine.dll Humanizer.dll" />
+      </ItemGroup>
+      <Message Text="ILMerging the JSModels dependencies dlls in $(AssemblyBuildDirectory) to $(ArtifactDropDirectory)" />
+      <Exec Command=".\tools\ILMerge\ILMerge.exe /targetplatform:&quot;v4, %ProgramFiles%\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0&quot; /lib:$(AssemblyBuildDirectory) /out:$(ILMergeFileOutput) %(ILMergeItems.FileName)%(ILMergeItems.Extension)" />
+  </Target>
+  
+  <Target Name="CopyArtifacts" DependsOnTargets="Build;ILMergeArtifacts">
+        <Copy SourceFiles="$(AssemblyBuildDirectory)\JsModels.dll" DestinationFolder="$(ArtifactDropDirectory)" />
+    </Target>
+    
+  <Target Name="Package" DependsOnTargets="CopyArtifacts">
     <!-- Get the version number of the main assembly to insert into the nuspec files -->
     <GetAssemblyIdentity AssemblyFiles=".\build\JsModels.dll">
       <Output TaskParameter="Assemblies" ItemName="OutputAssemblyInfo" />
     </GetAssemblyIdentity>
 
-    <Exec Command="nuget pack .\nuget\JsModels.nuspec -version %(OutputAssemblyInfo.Version)" />
-    <Exec Command="nuget pack .\nuget\JsModels.Cmd.nuspec -version %(OutputAssemblyInfo.Version)" />
+    <Exec Command="nuget pack .\nuget\JsModels.nuspec -version %(OutputAssemblyInfo.Version) -outputdirectory $(ArtifactDropDirectory)" />
+    <Exec Command="nuget pack .\nuget\JsModels.Cmd.nuspec -version %(OutputAssemblyInfo.Version) -outputdirectory $(ArtifactDropDirectory)" />
   </Target>
 </Project>

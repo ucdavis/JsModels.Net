@@ -13,7 +13,6 @@
     <language>en-US</language>
   </metadata>
   <files>
-    <file src="..\build\JsModels.Cmd.exe" target="tools" />
-    <file src="..\build\JsModels.dll" target="tools" />
+    <file src="..\artifacts\jsmodels.exe" target="tools" />
   </files>
 </package>
