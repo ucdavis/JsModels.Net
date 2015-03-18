@@ -6,7 +6,7 @@
     <Configuration Condition="'$(Configuration)'==''" >Release</Configuration>
     <ArtifactDropDirectory>.\artifacts</ArtifactDropDirectory>
     <AssemblyBuildDirectory>.\build</AssemblyBuildDirectory>
-    <ILMergeFileOutput>$(ArtifactDropDirectory)\jsmodels.exe</ILMergeFileOutput>
+    <ILMergeFileOutput>$(ArtifactDropDirectory)\jsmodels.cmd.exe</ILMergeFileOutput>
   </PropertyGroup>
   
   <Target Name="CreateDirectories">

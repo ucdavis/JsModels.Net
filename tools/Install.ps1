@@ -1,6 +1,6 @@
 param($installPath, $toolsPath, $package, $project)
 
-$file = Join-Path (Join-Path $toolsPath 'jsmodels') 'jsmodels.exe' | Get-ChildItem
+$file = Join-Path (Join-Path $toolsPath 'jsmodels') 'jsmodels.cmd.exe' | Get-ChildItem
 
 $project.ProjectItems.AddFromFile($file.FullName);
 $pi = $project.ProjectItems.Item($file.Name);
