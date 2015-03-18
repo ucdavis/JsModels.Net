@@ -20,6 +20,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{A80B992D
 		build.proj = build.proj
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{7CFEE73C-974C-4DA6-9A56-219F82CBB602}"
+	ProjectSection(SolutionItems) = preProject
+		tools\Install.ps1 = tools\Install.ps1
+		tools\Uninstall.ps1 = tools\Uninstall.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
