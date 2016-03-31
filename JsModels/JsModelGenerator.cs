@@ -72,6 +72,10 @@ namespace JsModels
                 {
                     writer.Write(" = false");
                 }
+                else if (typeof (IDictionary).IsAssignableFrom(property.PropertyType))
+                {
+                    writer.Write(" = {}");
+                }
                 else if (typeof (IEnumerable).IsAssignableFrom(property.PropertyType))
                 {
                     writer.Write(" = []");
