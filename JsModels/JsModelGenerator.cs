@@ -12,6 +12,7 @@ namespace JsModels
     {
         private readonly IEnumerable<Type> _refTypes;
 
+        private static readonly Type[] _boolTypes = { typeof(bool) };
         private static readonly Type[] _numberTypes = { typeof(byte), typeof(short), typeof(int), typeof(long), typeof(float), typeof(decimal), typeof(double) };
         private static readonly Type[] _stringTypes = { typeof(string), typeof(Guid) };
         private static readonly Type[] _dateTypes = { typeof(DateTime), typeof(DateTimeOffset) };
@@ -66,6 +67,10 @@ namespace JsModels
                 else if (_numberTypes.Contains(property.PropertyType))
                 {
                     writer.Write(" = 0");
+                }
+                else if (_boolTypes.Contains(property.PropertyType))
+                {
+                    writer.Write(" = false");
                 }
                 else if (typeof (IEnumerable).IsAssignableFrom(property.PropertyType))
                 {
