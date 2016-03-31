@@ -27,8 +27,9 @@
   </Target>
   
   <Target Name="CopyArtifacts" DependsOnTargets="Build;ILMergeArtifacts">
-        <Copy SourceFiles="$(AssemblyBuildDirectory)\JsModels.dll" DestinationFolder="$(ArtifactDropDirectory)" />
-    </Target>
+    <Copy SourceFiles="$(AssemblyBuildDirectory)\JsModels.dll" DestinationFolder="$(ArtifactDropDirectory)" />
+    <Copy SourceFiles="$(AssemblyBuildDirectory)\JsModels.Cmd.exe" DestinationFolder="$(ArtifactDropDirectory)" />
+  </Target>
     
   <Target Name="Package" DependsOnTargets="CopyArtifacts">
     <!-- Get the version number of the main assembly to insert into the nuspec files -->

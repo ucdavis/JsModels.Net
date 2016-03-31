@@ -13,9 +13,7 @@
     <language>en-US</language>
   </metadata>
   <files>
-    <file src="..\artifacts\jsmodels.cmd.exe" target="tools\jsmodels" />
-    <file src="..\tools\Install.ps1" target="tools" />
-    <file src="..\tools\Uninstall.ps1" target="tools" />
+    <file src="..\artifacts\jsmodels.cmd.exe" target="content" />
     <file src="..\LICENSE.txt" target="content\jsmodels-license.txt" />
   </files>
 </package>
