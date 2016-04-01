@@ -28,7 +28,6 @@
   
   <Target Name="CopyArtifacts" DependsOnTargets="Build;ILMergeArtifacts">
     <Copy SourceFiles="$(AssemblyBuildDirectory)\JsModels.dll" DestinationFolder="$(ArtifactDropDirectory)" />
-    <Copy SourceFiles="$(AssemblyBuildDirectory)\JsModels.Cmd.exe" DestinationFolder="$(ArtifactDropDirectory)" />
   </Target>
     
   <Target Name="Package" DependsOnTargets="CopyArtifacts">
