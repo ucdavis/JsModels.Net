@@ -46,4 +46,4 @@ steps:
     command: 'push'
     packagesToPush: 'artifacts/**/*.nupkg'
     nuGetFeedType: 'external'
-    publishFeedCredentials: 'Nuget JPKNOLL'
+    publishFeedCredentials: 'NuGet UcDotNetAdmin'
