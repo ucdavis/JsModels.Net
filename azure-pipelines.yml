@@ -37,7 +37,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/*.nuspec'
+    packagesToPack: 'build/*.nuspec'
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'version'
     
