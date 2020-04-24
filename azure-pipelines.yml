@@ -32,7 +32,15 @@ steps:
   inputs:
     solution: 'build.proj'
     configuration: '$(buildConfiguration)'
-    msbuildArguments: '/t:Build;Package /p:VersionNumber=$(version) /p:VersionAssembly=$(version) /p:AssemblyVersion=$(version)'
+    msbuildArguments: '/t:Build'
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    packDestination: 'artifacts'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'version'
 
 - task: PublishBuildArtifacts@1
   inputs:
