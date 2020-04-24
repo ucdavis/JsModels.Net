@@ -41,7 +41,7 @@ steps:
     packDestination: 'artifacts'
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'version'
-    basePath: '$(Build.SourcesDirectory)/nuget'
+    basePath: '$(Build.SourcesDirectory)\nuget'
 
 - task: PublishBuildArtifacts@1
   inputs:
