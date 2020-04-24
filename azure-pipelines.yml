@@ -28,9 +28,11 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: CmdLine@2
+- task: MSBuild@1
   inputs:
-    script: 'msbuild "build.proj" /p:Configuration=Release /verbosity:minimal /t:Build;Package'
+    solution: 'build.proj'
+    configuration: '$(buildConfiguration)'
+    msbuildArguments: '/t:Build;Package'
 
 - task: PublishBuildArtifacts@1
   inputs:
