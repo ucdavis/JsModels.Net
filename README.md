@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/1a6n977ipcyt1sl0?svg=true)](https://ci.appveyor.com/project/UCNETAdmin/jsmodels-net)
+[![Build Status](https://dev.azure.com/ucdavis/JsModels.Net/_apis/build/status/ucdavis.JsModels.Net?branchName=master)](https://dev.azure.com/ucdavis/JsModels.Net/_build/latest?definitionId=21&branchName=master)
 
 # JsModels.Net
 Javascript model building for .NET apps
