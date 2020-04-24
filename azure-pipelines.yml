@@ -41,6 +41,7 @@ steps:
     packDestination: 'artifacts'
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'version'
+    basePath: 'nuget'
 
 - task: PublishBuildArtifacts@1
   inputs:
