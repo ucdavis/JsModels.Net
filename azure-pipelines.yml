@@ -44,6 +44,6 @@ steps:
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    packagesToPush: 'artifacts/**/*.nupkg'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'Nuget JPKNOLL'
