@@ -32,7 +32,7 @@ steps:
   inputs:
     solution: 'build.proj'
     configuration: '$(buildConfiguration)'
-    msbuildArguments: '/t:Build;Package /p:VersionNumber=$(version)'
+    msbuildArguments: '/t:Build;Package /p:VersionNumber=$(version) /p:VersionAssembly=$(version) /p:AssemblyVersion=$(version)'
 
 - task: PublishBuildArtifacts@1
   inputs:
