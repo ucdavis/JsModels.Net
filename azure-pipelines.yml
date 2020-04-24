@@ -32,18 +32,11 @@ steps:
   inputs:
     solution: 'build.proj'
     configuration: '$(buildConfiguration)'
-    msbuildArguments: '/t:Build'
+    msbuildArguments: '/t:Build;Package'
 
-- task: NuGetCommand@2
-  inputs:
-    command: 'pack'
-    packagesToPack: 'build/*.nuspec'
-    versioningScheme: 'byEnvVar'
-    versionEnvVar: 'version'
-    
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: 'artifacts'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
