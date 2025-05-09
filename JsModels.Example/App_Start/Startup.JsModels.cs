@@ -1,6 +1,5 @@
 using JsModels.Example.Models;
 using JsModels.Owin;
-using Owin;
 
 namespace JsModels.Example
 {
