@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels.Example", "JsModels.Example\JsModels.Example.csproj", "{8337F574-1D8D-4513-BFD7-4CEC8B20FAD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsModels", "JsModels\JsModels.csproj", "{87EE8895-F004-4DC2-AEA7-78D56C514BE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels", "JsModels\JsModels.csproj", "{87EE8895-F004-4DC2-AEA7-78D56C514BE0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels.Cmd", "JsModels.Cmd\JsModels.Cmd.csproj", "{98B08938-0AEA-436C-83E3-A55FCD60F6B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsModels.Cmd", "JsModels.Cmd\JsModels.Cmd.csproj", "{98B08938-0AEA-436C-83E3-A55FCD60F6B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{D3A29020-2BEC-441E-9FF8-97214CBCE4AE}"
 	ProjectSection(SolutionItems) = preProject
@@ -26,10 +24,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8337F574-1D8D-4513-BFD7-4CEC8B20FAD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8337F574-1D8D-4513-BFD7-4CEC8B20FAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8337F574-1D8D-4513-BFD7-4CEC8B20FAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8337F574-1D8D-4513-BFD7-4CEC8B20FAD4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{87EE8895-F004-4DC2-AEA7-78D56C514BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{87EE8895-F004-4DC2-AEA7-78D56C514BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87EE8895-F004-4DC2-AEA7-78D56C514BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU

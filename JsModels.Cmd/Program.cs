@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using CommandLine;
 
 namespace JsModels.Cmd
 {
@@ -12,15 +13,26 @@ namespace JsModels.Cmd
         {
             try
             {
-                var options = new Options();
-                if (!CommandLine.Parser.Default.ParseArguments(args, options)) return 1;
+                Options options = null;
+                var parserResult = CommandLine.Parser.Default.ParseArguments<Options>(args);
+                parserResult
+                    .WithParsed(opts => options = opts)
+                    .WithNotParsed(errs =>
+                    {
+                        // Optionally print help here
+                        Environment.Exit(1);
+                    });
 
                 // check options
                 if (string.IsNullOrWhiteSpace(options.InputAssembly))
                 {
                     Console.WriteLine("Input Assembly required.");
                     Console.WriteLine("");
-                    Console.WriteLine(options.GetUsage());
+                    Console.WriteLine("Examples:");
+                    foreach (var example in Options.Examples)
+                    {
+                        Console.WriteLine(example);
+                    }
                     return 1;
                 }
 
@@ -28,7 +40,11 @@ namespace JsModels.Cmd
                 {
                     Console.WriteLine("Classes Option must be provided");
                     Console.WriteLine("");
-                    Console.WriteLine(options.GetUsage());
+                    Console.WriteLine("Examples:");
+                    foreach (var example in Options.Examples)
+                    {
+                        Console.WriteLine(example);
+                    }
                     return 1;
                 }
 
@@ -54,7 +70,7 @@ namespace JsModels.Cmd
                     if (model == null)
                     {
                         Console.WriteLine("Could not find model by name of: {0}", name);
-                        
+
                         var lower = name.ToLower();
                         var results = assembly.GetTypes().Where(t => t.Name.ToLower() == lower).ToList();
                         if (!results.Any())
