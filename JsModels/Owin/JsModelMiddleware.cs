@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Ajax.Utilities;
-using Microsoft.Owin;
 
 namespace JsModels.Owin
 {

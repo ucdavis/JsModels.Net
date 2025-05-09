@@ -1,11 +1,11 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels.Example", "JsModels.Example\JsModels.Example.csproj", "{8337F574-1D8D-4513-BFD7-4CEC8B20FAD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels", "JsModels\JsModels.csproj", "{87EE8895-F004-4DC2-AEA7-78D56C514BE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsModels", "JsModels\JsModels.csproj", "{87EE8895-F004-4DC2-AEA7-78D56C514BE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels.Cmd", "JsModels.Cmd\JsModels.Cmd.csproj", "{98B08938-0AEA-436C-83E3-A55FCD60F6B0}"
 EndProject
