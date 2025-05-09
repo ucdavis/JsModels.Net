@@ -1,4 +1,5 @@
-﻿using CommandLine;
+﻿using System.Collections.Generic;
+using CommandLine;
 using CommandLine.Text;
 
 namespace JsModels.Cmd
@@ -14,13 +15,16 @@ namespace JsModels.Cmd
         [Option('o', "output", HelpText = "Output Directory.")]
         public string OutputDirectory { get; set; }
 
-        [Option('v', "verbose", DefaultValue = false, HelpText = "Verbose Logging")]
+        [Option('v', "verbose", Default = false, HelpText = "Verbose Logging")]
         public bool Verbose { get; set; }
 
-        [HelpOption]
-        public string GetUsage()
+        [Usage(ApplicationAlias = "JsModels.Cmd")]
+        public static IEnumerable<Example> Examples
         {
-            return HelpText.AutoBuild(this, (current) => HelpText.DefaultParsingErrorsHandler(this, current));
+            get
+            {
+                yield return new Example("Generate models", new Options { InputAssembly = "MyAssembly.dll", Classes = "Class1,Class2", OutputDirectory = "./output" });
+            }
         }
     }
 }

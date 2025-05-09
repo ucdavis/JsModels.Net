@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace JsModels.Owin
+namespace JsModels.Middleware
 {
     public class JsModelsConfiguration
     {

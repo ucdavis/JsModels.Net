@@ -1,29 +1,23 @@
-﻿using System.Text;
-using System.Web;
-using JsModels.Owin;
-using Microsoft.AspNetCore.Html;
+﻿
+using JsModels.Middleware;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
 
 namespace JsModels.Html
 {
-    public static class JsModelsScripts
+    public class JsModelsScriptsViewComponent : ViewComponent
     {
-        private const string TagFormat = "<script src=\"{0}?v={1}\"></script>";
+        private readonly JsModelMiddleware _middleware;
 
-        /// <summary>
-        /// Renders script tags for the following paths.
-        /// </summary>
-        /// 
-        /// <returns>
-        /// The HTML string containing the script tag or tags for the bundle.
-        /// </returns>
-        public static IHtmlString Render()
+        public JsModelsScriptsViewComponent(JsModelMiddleware middleware)
         {
-            var middleware = JsModelMiddleware.Instance;
+            _middleware = middleware;
+        }
 
-            var stringBuilder = new StringBuilder();
-            stringBuilder.AppendFormat(TagFormat, middleware.Path, middleware.VersionHash);
-
-            return new HtmlString(stringBuilder.ToString());
+        public IViewComponentResult Invoke()
+        {
+            var tag = $"<script src=\"{_middleware.Path}?v={_middleware.VersionHash}\"></script>";
+            return new HtmlContentViewComponentResult(new Microsoft.AspNetCore.Html.HtmlString(tag));
         }
     }
 }
