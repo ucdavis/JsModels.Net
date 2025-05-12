@@ -17,12 +17,13 @@
   <ItemGroup>
     <ProjectReference Include="..\JsModels\JsModels.csproj" />
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <!-- <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" /> -->
   </ItemGroup>
   <ItemGroup>
-    <!-- Include the published exe in the NuGet package under 'tools' -->
+    <!-- 
+      Items to be packed for publishing to NuGet
+      Content in the publish folder comes from azure pipeline step, "Publish JsModels.Net.Cmd"
+    -->
     <None Include="publish/JsModels.Cmd.exe" Pack="true" PackagePath="content\" />
-    <!-- Include the license file -->
     <None Include="..\LICENSE.txt" Pack="true" PackagePath="content\jsmodels-license.txt" />
   </ItemGroup>
 </Project>
