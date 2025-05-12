@@ -31,12 +31,6 @@ steps:
     projects: '$(solution)'
     arguments: '--configuration $(buildConfiguration)'
 
-- powershell: |
-    if (Test-Path "JsModels.Cmd\publish") {
-      Remove-Item -Recurse -Force "JsModels.Cmd\publish"
-    }
-  displayName: 'Clean publish output'
-
 - task: DotNetCoreCLI@2
   displayName: 'Publish JsModels.Net.Cmd'
   inputs:
@@ -44,9 +38,6 @@ steps:
     publishWebProjects: false
     projects: 'JsModels.Cmd/JsModels.Cmd.csproj'
     arguments: '--configuration $(buildConfiguration) --output JsModels.Cmd/publish'
-
-- script: dir JsModels.Cmd\publish
-  displayName: 'List publish output'
 
 - task: DotNetCoreCLI@2
   displayName: 'Pack JsModels.Net'
