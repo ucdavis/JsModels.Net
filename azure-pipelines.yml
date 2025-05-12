@@ -32,13 +32,32 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Pack'
+  displayName: 'Publish JsModels.Net.Cmd'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: 'JsModels.Cmd/JsModels.Cmd.csproj'
+    arguments: '--configuration $(buildConfiguration) --output JsModels.Cmd/publish'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Pack JsModels.Net'
   inputs:
     command: 'pack'
-    packagesToPack: '$(solution)'
+    packagesToPack: 'JsModels/JsModels.csproj'
     configuration: '$(buildConfiguration)'
     packDirectory: 'artifacts'
     versioningScheme: 'off'
+    arguments: /p:PackageVersion=$(version)
+
+- task: DotNetCoreCLI@2
+  displayName: 'Pack JsModels.Net.Cmd'
+  inputs:
+    command: 'pack'
+    packagesToPack: 'JsModels.Cmd/JsModels.Cmd.csproj'
+    configuration: '$(buildConfiguration)'
+    packDirectory: 'artifacts'
+    versioningScheme: 'off'
+    arguments: /p:PackageVersion=$(version)
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifacts'

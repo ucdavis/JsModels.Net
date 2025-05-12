@@ -5,13 +5,24 @@
     <OutputPath>..\build\</OutputPath>
     <AssemblyTitle>JsModels.Cmd</AssemblyTitle>
     <Product>JsModels.Cmd</Product>
-    <Copyright>Copyright ©  2015</Copyright>
+    <Copyright>Copyright © 2015</Copyright>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
+    <PackageId>JsModels.Net.Cmd</PackageId>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier> <!-- or add more RIDs as needed -->
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\JsModels\JsModels.csproj" />
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <!-- <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" /> -->
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Include the published exe in the NuGet package under 'tools' -->
+    <None Include="publish/JsModels.Cmd.exe" Pack="true" PackagePath="content\" />
+    <!-- Include the license file -->
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="content\jsmodels-license.txt" />
   </ItemGroup>
 </Project>
