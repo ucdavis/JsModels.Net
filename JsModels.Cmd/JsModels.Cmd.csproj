@@ -15,7 +15,7 @@
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JsModels\JsModels.csproj" />
+    <ProjectReference Include="../JsModels/JsModels.csproj" />
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
   </ItemGroup>
   <ItemGroup>
@@ -23,7 +23,7 @@
       Items to be packed for publishing to NuGet
       Content in the publish folder comes from azure pipeline step, "Publish JsModels.Net.Cmd"
     -->
-    <None Include="publish/JsModels.Cmd.exe" Pack="true" PackagePath="content\" />
-    <None Include="..\LICENSE.txt" Pack="true" PackagePath="content\jsmodels-license.txt" />
+    <None Include="publish/JsModels.Cmd*" Pack="true" PackagePath="content/" />
+    <None Include="../LICENSE.txt" Pack="true" PackagePath="content/jsmodels-license.txt" />
   </ItemGroup>
 </Project>
