@@ -43,7 +43,7 @@ steps:
     command: 'publish'
     publishWebProjects: false
     projects: 'JsModels.Cmd/JsModels.Cmd.csproj'
-    arguments: '--configuration $(buildConfiguration) --output publish'
+    arguments: '--configuration $(buildConfiguration) --output JsModels.Cmd/publish'
 
 - script: dir JsModels.Cmd\publish
   displayName: 'List publish output'
