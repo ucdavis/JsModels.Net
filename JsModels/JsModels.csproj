@@ -20,6 +20,9 @@
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.CoreServices" Version="1.4.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\JsModels.MSBuild\JsModels.MSBuild.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="../JsModels.MSBuild/JsModels.Net.targets" Pack="true" PackagePath="build/" />
     <None Include="../JsModels.MSBuild/bin/$(Configuration)/net8.0/JsModels.MSBuild.dll" Pack="true"
       PackagePath="lib/net8.0/" />
