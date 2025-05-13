@@ -1,0 +1,10 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <UsingTask TaskName="JsModels.MSBuild.JsModelGeneratorTask"
+        AssemblyFile="$(MSBuildThisFileDirectory)../JsModels.dll" />
+    <Target Name="GenerateJsModels" AfterTargets="Build">
+        <JsModelGeneratorTask
+            InputAssembly="$(TargetPath)"
+            Classes="$(JsModelsClasses)"
+            OutputDirectory="$(TargetDir)Scripts" />
+    </Target>
+</Project>
