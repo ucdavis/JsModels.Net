@@ -4,7 +4,7 @@
     <StartupObject />
     <TargetFramework>net8.0</TargetFramework>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <OutputPath>..\build\</OutputPath>
+    <OutputPath>../build/</OutputPath>
     <AssemblyTitle>JsModels.Net</AssemblyTitle>
     <Description>Javascript model building for .NET apps</Description>
     <Product>JsModels.Net</Product>
@@ -14,17 +14,17 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Humanizer" Version="2.14.1" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NUglify" Version="1.21.15" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="1.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.CoreServices" Version="1.4.0" />
-    <PackageReference Include="Antlr4" Version="4.6.6" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.9.5" />
-    <PackageReference Include="Microsoft.Build.Framework" Version="17.9.5" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="JsModels.Net.targets" Pack="true" PackagePath="build/" />
+    <ProjectReference Include="..\JsModels.MSBuild\JsModels.MSBuild.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../JsModels.MSBuild/JsModels.Net.targets" Pack="true" PackagePath="build/" />
+    <None Include="../JsModels.MSBuild/bin/$(Configuration)/net8.0/JsModels.MSBuild.dll" Pack="true"
+      PackagePath="lib/net8.0/" />
   </ItemGroup>
 </Project>

@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace JsModels.MSBuild
 {
-    public class JsModelGeneratorTask : Task
+    public class JsModelGeneratorTask : Microsoft.Build.Utilities.Task
     {
         [Required]
         public string InputAssembly { get; set; }
