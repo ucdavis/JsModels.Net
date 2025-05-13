@@ -23,8 +23,8 @@ namespace JsModels.MSBuild
         {
             if (string.IsNullOrWhiteSpace(Classes))
             {
-                Log.LogWarning("The 'Classes' property must be set for JsModelGeneratorTask. Consider using the <JsModelsClasses> property group in your MSBuild project file to specify the classes.");
-                return true;
+                Log.LogError("The 'Classes' property must be set for JsModelGeneratorTask. Consider using the <JsModelsClasses> property group in your MSBuild project file to specify the classes.");
+                return false;
             }
             try
             {
