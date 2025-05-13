@@ -37,7 +37,7 @@ steps:
     command: 'publish'
     publishWebProjects: false
     projects: 'JsModels.Cmd/JsModels.Cmd.csproj'
-    arguments: '--configuration $(buildConfiguration) --output JsModels.Cmd/publish -p:EnableCompressionInSingleFile=false'
+    arguments: '--configuration $(buildConfiguration) --output JsModels.Cmd/publish'
 
 - task: DotNetCoreCLI@2
   displayName: 'Pack JsModels.Net'

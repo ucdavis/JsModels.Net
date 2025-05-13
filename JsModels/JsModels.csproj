@@ -8,7 +8,7 @@
     <AssemblyTitle>JsModels.Net</AssemblyTitle>
     <Description>Javascript model building for .NET apps</Description>
     <Product>JsModels.Net</Product>
-    <Copyright>Copyright ©  2015</Copyright>
+    <Copyright>Copyright © 2015</Copyright>
     <AssemblyVersion>1.0.0.*</AssemblyVersion>
     <PackageId>JsModels.Net</PackageId>
   </PropertyGroup>
@@ -21,5 +21,10 @@
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="1.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.CoreServices" Version="1.4.0" />
     <PackageReference Include="Antlr4" Version="4.6.6" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.9.5" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="17.9.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="JsModels.Net.targets" Pack="true" PackagePath="build/" />
   </ItemGroup>
 </Project>
