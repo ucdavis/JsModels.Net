@@ -23,7 +23,7 @@
       Items to be packed for publishing to NuGet
       Content in the publish folder comes from azure pipeline step, "Publish JsModels.Net.Cmd"
     -->
-    <None Include="publish/JsModels.Cmd*" Pack="true" PackagePath="content/" />
+    <None Include="publish/JsModels.Cmd.exe" Pack="true" PackagePath="content/" />
     <None Include="../LICENSE.txt" Pack="true" PackagePath="content/jsmodels-license.txt" />
   </ItemGroup>
 </Project>
