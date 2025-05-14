@@ -20,7 +20,8 @@
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.CoreServices" Version="1.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\JsModels.MSBuild\JsModels.MSBuild.csproj" />
+    <!-- PrivateAssets="all" tells dotnet pack to not treat this reference as a separate package -->
+    <ProjectReference Include="..\JsModels.MSBuild\JsModels.MSBuild.csproj" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <None Include="../JsModels.MSBuild/JsModels.Net.targets" Pack="true" PackagePath="build/" />
