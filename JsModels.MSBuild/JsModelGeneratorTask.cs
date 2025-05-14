@@ -13,7 +13,7 @@ namespace JsModels.MSBuild
         [Required]
         public string InputAssembly { get; set; }
 
-        [Required]
+        // Not using [Required] in order to have an opportunity to log a custom error message if the property is not set.
         public string Classes { get; set; }
 
         [Required]
@@ -23,8 +23,8 @@ namespace JsModels.MSBuild
         {
             if (string.IsNullOrWhiteSpace(Classes))
             {
-                Log.LogError("The 'Classes' property must be set for JsModelGeneratorTask. Consider using the <JsModelsClasses> property group in your MSBuild project file to specify the classes.");
-                return false;
+                Log.LogWarning("The 'Classes' property must be set for JsModelGeneratorTask. Use the <JsModelsClasses> property group in your MSBuild project file to specify the classes.");
+                return true;
             }
             try
             {
