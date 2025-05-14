@@ -26,6 +26,6 @@
   <ItemGroup>
     <None Include="../JsModels.MSBuild/JsModels.Net.targets" Pack="true" PackagePath="build/" />
     <None Include="../JsModels.MSBuild/bin/$(Configuration)/net8.0/*.dll" Pack="true"
-      PackagePath="lib/net8.0/" />
+      PackagePath="build/JsModels.Net/net8.0/" />
   </ItemGroup>
 </Project>
