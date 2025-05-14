@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{A80B992D
 		build.proj = build.proj
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsModels.MSBuild", "JsModels.MSBuild\JsModels.MSBuild.csproj", "{9BE411F7-D8D9-4C6B-B2F9-45DA123BB9D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{98B08938-0AEA-436C-83E3-A55FCD60F6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98B08938-0AEA-436C-83E3-A55FCD60F6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98B08938-0AEA-436C-83E3-A55FCD60F6B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BE411F7-D8D9-4C6B-B2F9-45DA123BB9D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BE411F7-D8D9-4C6B-B2F9-45DA123BB9D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BE411F7-D8D9-4C6B-B2F9-45DA123BB9D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BE411F7-D8D9-4C6B-B2F9-45DA123BB9D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
