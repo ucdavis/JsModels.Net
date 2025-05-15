@@ -60,7 +60,7 @@ steps:
     arguments: /p:PackageVersion=$(version)
 
 - task: DotNetCoreCLI@2
-  displayName: 'Pack JsModels.MSBuild'
+  displayName: 'Pack JsModels.Net.MSBuild'
   inputs:
     command: 'pack'
     packagesToPack: 'JsModels.MSBuild/JsModels.MSBuild.csproj'
