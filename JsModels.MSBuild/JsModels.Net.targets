@@ -1,7 +1,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <UsingTask TaskName="JsModels.MSBuild.JsModelGeneratorTask"
         AssemblyFile="$(MSBuildThisFileDirectory)JsModels.Net/net8.0/JsModels.MSBuild.dll" />
-    <Target Name="GenerateJsModels" AfterTargets="Build" Condition="'$(IsBuildProject)' == 'true'">
+    <Target Name="GenerateJsModels" AfterTargets="Build" Condition="'$(GenerateJsModels)' == 'true'">
         <JsModelGeneratorTask
             InputAssembly="$(TargetPath)"
             Classes="$(JsModelsClasses)"
